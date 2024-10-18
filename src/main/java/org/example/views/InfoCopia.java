@@ -42,7 +42,7 @@ public class InfoCopia extends JFrame {
         titulodetails.setText("Título --> " + copiaSeleccionada.getPelicula().getTitulo());
         estadodetails.setText("Estado --> " + copiaSeleccionada.getEstado());
         soportedetails.setText("Soporte --> " + copiaSeleccionada.getSoporte());
-        descriptiondetails.setText("Descripción --> " + copiaSeleccionada.getPelicula().getDescripcion());
+        descriptiondetails.setText("<html><body style='width: 180px'>" + "Descripción  --> "+copiaSeleccionada.getPelicula().getDescripcion() + "</body></html>");
         directordetails.setText("Director --> " + copiaSeleccionada.getPelicula().getDirector());
         anodetails.setText("Año --> " + String.valueOf(copiaSeleccionada.getPelicula().getAno()));
 
