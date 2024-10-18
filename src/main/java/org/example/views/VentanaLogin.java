@@ -39,6 +39,8 @@ public class VentanaLogin extends JFrame {
         setTitle("Login");
         setSize(350, 500);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        buttonlogin.setBorderPainted(false);
+        botonsalir.setBorderPainted(false);
         setLocationRelativeTo(null);
         setVisible(true);
 

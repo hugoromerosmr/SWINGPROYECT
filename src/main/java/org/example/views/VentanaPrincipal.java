@@ -6,6 +6,7 @@ import org.example.model.Copias;
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.table.DefaultTableModel;
+import java.awt.*;
 import java.util.List;
 
 /**
@@ -15,7 +16,6 @@ import java.util.List;
  */
 public class VentanaPrincipal extends JFrame {
     private JTable tablajuegos;
-    private JLabel textjuego;
     private JPanel cabecerajuego;
     private JPanel paneltabla;
     private JLabel img;
@@ -38,9 +38,6 @@ public class VentanaPrincipal extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setVisible(true);
-
-        // Muestra el ID del usuario en la interfaz
-        textjuego.setText("Usuario número " + idUsuario);
 
         // Obtener la lista de copias del usuario
         List<Copias> copias = copiasDAO.obtenerCopiasPorUsuario(idUsuario);

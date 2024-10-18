@@ -3,6 +3,8 @@ package org.example.views;
 import org.example.model.Copias;
 
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
+import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 import java.awt.*;
 
@@ -30,24 +32,50 @@ public class InfoCopia extends JFrame {
      *                          de la copia seleccionada para ser mostrada.
      */
     public InfoCopia(Copias copiaSeleccionada) {
+        // Configuración básica de la ventana
         PanelPrincipal.setLayout(new BoxLayout(PanelPrincipal, BoxLayout.Y_AXIS));
-
         setContentPane(PanelPrincipal);
-        setSize(600, 600);
+        setSize(500, 660); // Ajustamos a 500x500 píxeles
         setTitle("Info de copia " + copiaSeleccionada.getPelicula().getTitulo());
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLocationRelativeTo(null);
+        setLocationRelativeTo(null);  // Centra la ventana en pantalla
+        PanelPrincipal.setBackground(new Color(240, 240, 240)); // Color de fondo claro
 
-        // Configurar los detalles de la película y la copia seleccionada
+        // Configurar margen para dar un buen espaciado
+        PanelPrincipal.setBorder(new EmptyBorder(15, 15, 15, 15));  // Ajustamos el margen
+
+        // Estilo y configuración de etiquetas
+        Font labelFont = new Font("Arial", Font.BOLD, 13); // Fuente ajustada para mejor escala
+
         titulodetails.setText("Título --> " + copiaSeleccionada.getPelicula().getTitulo());
+        titulodetails.setFont(labelFont); // Aplicar la fuente
         estadodetails.setText("Estado --> " + copiaSeleccionada.getEstado());
+        estadodetails.setFont(labelFont);
         soportedetails.setText("Soporte --> " + copiaSeleccionada.getSoporte());
-        descriptiondetails.setText("<html><body style='width: 180px'>" + "Descripción  --> "+copiaSeleccionada.getPelicula().getDescripcion() + "</body></html>");
+        soportedetails.setFont(labelFont);
+        descriptiondetails.setText("<html><body style='width: 200px'>" + "Descripción  --> " + copiaSeleccionada.getPelicula().getDescripcion() + "</body></html>");
+        descriptiondetails.setFont(labelFont);
         directordetails.setText("Director --> " + copiaSeleccionada.getPelicula().getDirector());
+        directordetails.setFont(labelFont);
         anodetails.setText("Año --> " + String.valueOf(copiaSeleccionada.getPelicula().getAno()));
+        anodetails.setFont(labelFont);
 
-        PanelPrincipal.revalidate();
-        PanelPrincipal.repaint();
+        // Espaciado vertical entre componentes
+        titulodetails.setBorder(new EmptyBorder(8, 0, 8, 0));  // Ajustar espaciado
+        estadodetails.setBorder(new EmptyBorder(8, 0, 8, 0));
+        soportedetails.setBorder(new EmptyBorder(8, 0, 8, 0));
+        descriptiondetails.setBorder(new EmptyBorder(8, 0, 8, 0));
+        directordetails.setBorder(new EmptyBorder(8, 0, 8, 0));
+        anodetails.setBorder(new EmptyBorder(8, 0, 8, 0));
+
+        // Añadir bordes con título para secciones
+        panel.setBorder(BorderFactory.createTitledBorder(
+                BorderFactory.createLineBorder(Color.BLACK),
+                "DETALLES DE LA COPIA",
+                TitledBorder.CENTER,
+                TitledBorder.TOP,
+                new Font("Arial", Font.BOLD, 15),
+                Color.BLACK));
 
         // Acción para cerrar la ventana cuando se presiona el botón
         button1.addActionListener(e -> dispose());
